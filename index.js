@@ -1,3 +1,5 @@
+// Студент: Евдокимов В.Е., группа 478
+
 const http = require('http');
 const { EventEmitter } = require('events');
 
