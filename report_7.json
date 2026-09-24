@@ -1,0 +1,115 @@
+{
+  "dirCount": 13,
+  "fileCount": 18,
+  "totalSize": 13407,
+  "extensions": {
+    "без расширения": {
+      "count": 1,
+      "size": 39
+    },
+    ".js": {
+      "count": 4,
+      "size": 9648
+    },
+    ".json": {
+      "count": 2,
+      "size": 2600
+    },
+    ".txt": {
+      "count": 11,
+      "size": 1120
+    }
+  },
+  "allFiles": [
+    {
+      "name": ".gitignore",
+      "path": "C:\\Users\\WINDOWS 10\\my-node-app\\.gitignore",
+      "size": 39
+    },
+    {
+      "name": "index.js",
+      "path": "C:\\Users\\WINDOWS 10\\my-node-app\\index.js",
+      "size": 1083
+    },
+    {
+      "name": "package.json",
+      "path": "C:\\Users\\WINDOWS 10\\my-node-app\\package.json",
+      "size": 225
+    },
+    {
+      "name": "info.txt",
+      "path": "C:\\Users\\WINDOWS 10\\my-node-app\\project_7\\data\\input\\info.txt",
+      "size": 60
+    },
+    {
+      "name": "info.txt",
+      "path": "C:\\Users\\WINDOWS 10\\my-node-app\\project_7\\data\\output\\info.txt",
+      "size": 62
+    },
+    {
+      "name": "info.txt",
+      "path": "C:\\Users\\WINDOWS 10\\my-node-app\\project_7\\data\\results\\info.txt",
+      "size": 62
+    },
+    {
+      "name": "info.txt",
+      "path": "C:\\Users\\WINDOWS 10\\my-node-app\\project_7\\data\\temp\\info.txt",
+      "size": 62
+    },
+    {
+      "name": "info.txt",
+      "path": "C:\\Users\\WINDOWS 10\\my-node-app\\project_7\\src\\components\\1\\info.txt",
+      "size": 87
+    },
+    {
+      "name": "info.txt",
+      "path": "C:\\Users\\WINDOWS 10\\my-node-app\\project_7\\src\\components\\2\\info.txt",
+      "size": 87
+    },
+    {
+      "name": "info.txt",
+      "path": "C:\\Users\\WINDOWS 10\\my-node-app\\project_7\\src\\components\\3\\info.txt",
+      "size": 87
+    },
+    {
+      "name": "info.txt",
+      "path": "C:\\Users\\WINDOWS 10\\my-node-app\\project_7\\src\\components\\info.txt",
+      "size": 56
+    },
+    {
+      "name": "info.txt",
+      "path": "C:\\Users\\WINDOWS 10\\my-node-app\\project_7\\src\\modules\\info.txt",
+      "size": 71
+    },
+    {
+      "name": "info.txt",
+      "path": "C:\\Users\\WINDOWS 10\\my-node-app\\project_7\\src\\utils\\info.txt",
+      "size": 78
+    },
+    {
+      "name": "report_7.json",
+      "path": "C:\\Users\\WINDOWS 10\\my-node-app\\report_7.json",
+      "size": 2375
+    },
+    {
+      "name": "student_7.txt",
+      "path": "C:\\Users\\WINDOWS 10\\my-node-app\\student_7.txt",
+      "size": 408
+    },
+    {
+      "name": "task1.js",
+      "path": "C:\\Users\\WINDOWS 10\\my-node-app\\task1.js",
+      "size": 1820
+    },
+    {
+      "name": "task2.js",
+      "path": "C:\\Users\\WINDOWS 10\\my-node-app\\task2.js",
+      "size": 3039
+    },
+    {
+      "name": "task3.js",
+      "path": "C:\\Users\\WINDOWS 10\\my-node-app\\task3.js",
+      "size": 3706
+    }
+  ]
+}
