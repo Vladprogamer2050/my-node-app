@@ -39,11 +39,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// 4. Обработка ошибок
-app.use((err, req, res, next) => {
-    console.error('Ошибка:', err.message);
-    res.status(err.status || 500).json({ error: err.message || 'Внутренняя ошибка сервера', status: err.status || 500 });
-});
+// 4. Обработка ошибок регистрируется после маршрутов (см. конец файла)
 
 // ==========================================
 // ЗАДАНИЕ 5: Генерация 100 тестовых книг
@@ -236,6 +232,13 @@ app.get('/async-error', async (req, res, next) => {
     } catch (err) {
         next(err);
     }
+});
+
+// 4. Обработка ошибок — должна идти ПОСЛЕ всех маршрутов,
+// иначе Express о ней не знает и отдаёт свою HTML-страницу со стектрейсом
+app.use((err, req, res, next) => {
+    console.error('Ошибка:', err.message);
+    res.status(err.status || 500).json({ error: err.message || 'Внутренняя ошибка сервера', status: err.status || 500 });
 });
 
 // Запуск сервера
