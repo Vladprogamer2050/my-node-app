@@ -1,9 +1,50 @@
 #!/usr/bin/env node
+const fs = require('fs');
 const { program } = require('commander');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
 const ora = require('ora');
 const cliProgress = require('cli-progress');
+
+// Содержимое отчёта для команды generate
+function buildReport(type) {
+  const data = {
+    lab: '№17',
+    student: 'Евдокимов В.Е.',
+    group: 'ББМО-01-23',
+    createdAt: new Date().toLocaleString('ru-RU')
+  };
+
+  if (type === 'json') {
+    return JSON.stringify(data, null, 2) + '\n';
+  }
+  if (type === 'csv') {
+    const rows = Object.entries(data).map(([k, v]) => `${k},"${v}"`);
+    return 'field,value\n' + rows.join('\n') + '\n';
+  }
+  if (type === 'html') {
+    const rows = Object.entries(data).map(([k, v]) => `<tr><th>${k}</th><td>${v}</td></tr>`).join('\n    ');
+    return `<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="utf-8"><title>Отчёт ЛР №17</title></head>
+<body>
+  <h1>Отчёт по лабораторной работе №17</h1>
+  <table border="1" cellpadding="6">
+    ${rows}
+  </table>
+</body>
+</html>
+`;
+  }
+  // pdf: без внешних библиотек полноценный PDF не собрать — сохраняем текстовый отчёт
+  return [
+    'Отчёт по лабораторной работе №17 (текстовый формат вместо PDF)',
+    `Студент: ${data.student}`,
+    `Группа: ${data.group}`,
+    `Дата: ${data.createdAt}`,
+    ''
+  ].join('\n');
+}
 
 // Настройка программы
 program
@@ -70,12 +111,25 @@ program
       process.exit(0);
     }
 
+    // Проверка существующего файла (флаг --force)
+    if (fs.existsSync(options.output) && !options.force) {
+      console.error(chalk.red(`Файл "${options.output}" уже существует. Используйте --force для перезаписи.`));
+      process.exit(1);
+    }
+
     // Спиннер (Задание 4)
     const spinner = ora('Генерация отчёта...').start();
     setTimeout(() => {
-      spinner.succeed('Отчёт успешно сгенерирован!');
-      console.log(chalk.green(`Результат сохранён: ${options.output}`));
-      process.exit(0);
+      try {
+        fs.writeFileSync(options.output, buildReport(options.type), 'utf8');
+        spinner.succeed('Отчёт успешно сгенерирован!');
+        console.log(chalk.green(`Результат сохранён: ${options.output}`));
+        process.exit(0);
+      } catch (err) {
+        spinner.fail('Не удалось сохранить отчёт');
+        console.error(chalk.red(`Ошибка записи файла: ${err.message}`));
+        process.exit(1);
+      }
     }, 1500);
   });
 
